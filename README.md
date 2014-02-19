@@ -17,4 +17,4 @@ I should also be able to call these functions on a `Person`:
 * `weightInStone` should return the person's weight in [stone](http://en.wikipedia.org/wiki/Stone_%28unit%29)
 * `addFriend` should take a `Person` object and add it to the person's friends
 * `removeFriend` should take a name string and remove the person with that name from the person's friends, if there is such a friend
-* `greetPeople` should return a string that greets an optional array of `Person` objects by their full names, with an optional greeting. The default greeting should be `"Hi"` and the default person array should be the person's friends. If there is no one to greet (e.g. the person has no friends), the function should throw an error.
+* `greetPeople` should return a string that greets an optional array of `Person` objects (default to the person's friends) by their full names, with an optional greeting (default to `"Hi"`). If there is no one to greet (e.g. the person has no friends), the function should throw an error.
