@@ -10,7 +10,7 @@ function Person(first_name, last_name, args){
 
 
 Person.prototype.fullName = function() {
-  this.full_name = (this.first_name + ' ' + this.last_name);
+  return this.full_name = (this.first_name + ' ' + this.last_name);
 };
 
 Person.prototype.toStone = function() {
@@ -25,4 +25,15 @@ Person.prototype.addFriend = function(person) {
 Person.prototype.deleteFriend = function(person) {
   index = this.friends.indexOf(person);
   this.friends.splice(index, 1);
+};
+
+Person.prototype.greetPeople = function(options) {
+  options = options || [];
+  greeting = options.greeting || "Hi";
+  people = options.people || this.friends;
+  var result = [];
+  for(var i = 0; i < people.length; i++) {
+    result.push(greeting + ' ' + people[i].fullName());
+  };
+  return result;
 };

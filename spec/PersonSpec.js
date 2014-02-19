@@ -83,6 +83,32 @@ describe('Person', function(){
       expect(person.friends).toEqual([person3]);
     });
   });
+
+  describe('Should return a string that greets an optional array of Person objects', function() {
+    beforeEach(function () {
+      greeting1 = person.greetPeople({people: [person2]});
+      greeting2 = person.greetPeople({people: [person2], greeting: 'Hello'});
+      greeting3 = person.greetPeople();
+      greeting4 = person.greetPeople({greeting: 'Hello'});
+      greeting5 = person2.greetPeople();
+    });
+
+    it('Should greet person2 with default greeting', function() {
+      expect(greeting1).toEqual(['Hi John Dover']);
+    });
+    it('Should greet person2 with Hello', function() {
+      expect(greeting2).toEqual(['Hello John Dover']);
+    });
+    it('Should greet person2 and person 3 with default greeting', function() {
+      expect(greeting3).toEqual(['Hi John Dover', 'Hi Mark Dover']);
+    });
+    it('Should greet person2 and person3 with hello', function() {
+      expect(greeting4).toEqual(['Hello John Dover', 'Hello Mark Dover']);
+    });
+    it('Should throw an error if no name is provided and person has no friends', function() {
+      expect(greeting5).toEqual('Error- no friends');
+    });
+  });
 });
 
 
