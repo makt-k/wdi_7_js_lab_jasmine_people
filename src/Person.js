@@ -31,9 +31,14 @@ Person.prototype.greetPeople = function(options) {
   options = options || [];
   greeting = options.greeting || "Hi";
   people = options.people || this.friends;
-  var result = [];
-  for(var i = 0; i < people.length; i++) {
-    result.push(greeting + ' ' + people[i].fullName());
-  };
-  return result;
+
+  if((people.length === 0) && (this.friends.length === 0)) {
+    return 'Error- no friends';
+  } else {
+    var result = [];
+    for(var i = 0; i < people.length; i++) {
+      result.push(greeting + ' ' + people[i].fullName());
+    };
+    return result;
+  }
 };
